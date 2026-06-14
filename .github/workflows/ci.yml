@@ -24,19 +24,5 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Seed demo cache
-        run: npm run gen:demo
-
-      - name: Offline pipeline run (--mock --dry)
-        run: npm run repurpose -- --mock --dry
-
-      - name: Offline pipeline write + schedule
-        run: npm run repurpose -- --mock --schedule --days=7
-
-      - name: Sanity check artifacts
-        run: |
-          test -s data/out/omnipost.json
-          test -s data/out/omnipost.md
-          test -s data/out/calendar.csv
-          test -s data/out/calendar.ics
-          echo "ok"
+      - name: Smoke test (29 assertions, fully offline)
+        run: npm test

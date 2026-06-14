@@ -51,7 +51,7 @@ const SAMPLE: Repurposed = {
     "Most AI playbooks for small businesses assume a data team and a six-month pilot. You probably have neither. The version that actually works is unglamorous: pick the most annoying recurring task, write down what good output looks like by hand, start with an off-the-shelf assistant, and keep a human reviewer in the loop for at least four weeks. Measure two numbers — time saved per occurrence, and error rate against the human version. Three months in, the right first job quietly buys back a workday a week across your team. Reply with your biggest content bottleneck — happy to brainstorm.",
 };
 
-async function main(): Promise<void> {
+export async function genDemo(): Promise<void> {
   const cfg = loadConfig();
   const brand = brandVoice(cfg);
 
@@ -89,7 +89,10 @@ async function main(): Promise<void> {
   );
 }
 
-main().catch((err) => {
-  console.error("[gen-demo] fatal:", err);
-  process.exit(1);
-});
+const isMain = import.meta.url === `file://${process.argv[1]}`;
+if (isMain) {
+  genDemo().catch((err) => {
+    console.error("[gen-demo] fatal:", err);
+    process.exit(1);
+  });
+}

@@ -38,7 +38,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "gen:demo": "tsx scripts/gen-demo.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "tsx scripts/smoke-test.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.102.0",

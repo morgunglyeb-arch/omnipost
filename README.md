@@ -10,7 +10,7 @@
 [![Groq](https://img.shields.io/badge/Groq-gpt--oss--120b-f55036)](https://groq.com/)
 [![License](https://img.shields.io/badge/license-MIT-22c55e)](#license)
 
-[Live demo](https://morgunglyeb-arch.github.io/omnipost/) · [Case study](./PORTFOLIO.md) · [Architecture](#architecture)
+[Live demo](https://morgunglyeb-arch.github.io/omnipost/) · [Case study](./PORTFOLIO.md) · [Architecture](#architecture) · [Testing](./TESTING.md)
 
 </div>
 
@@ -76,6 +76,7 @@ cp .env.example .env             # fill keys (or skip and use --mock)
 npm run gen:demo                 # seeds the cache + docs/sample.json
 npm run repurpose -- --mock --dry          # offline preview, no API key
 npm run repurpose -- --schedule --days=7   # write posts + calendar
+npm test                                    # 29-assertion offline smoke test
 ```
 
 ## CLI
