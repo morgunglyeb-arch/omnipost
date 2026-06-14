@@ -1,0 +1,57 @@
+{
+  "name": "omnipost",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agentic TypeScript pipeline that turns one long-form source (article, transcript, note) into platform-native posts for X / LinkedIn / Instagram / newsletter, plus a weekly content calendar (CSV + .ics). LLM drafts, code enforces character limits and hashtag rules.",
+  "type": "module",
+  "keywords": [
+    "agentic",
+    "typescript",
+    "nodejs",
+    "claude",
+    "anthropic",
+    "groq",
+    "llm",
+    "prompt-caching",
+    "tool-use",
+    "zod",
+    "content-repurposing",
+    "content-automation",
+    "social-media-automation",
+    "ai-content",
+    "content-calendar",
+    "ics",
+    "structured-output",
+    "graceful-fallback",
+    "idempotent",
+    "github-actions"
+  ],
+  "author": "Glyeb Morgun <morgunglyeb@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://morgunglyeb-arch.github.io/omnipost/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morgunglyeb-arch/omnipost.git"
+  },
+  "scripts": {
+    "repurpose": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "gen:demo": "tsx scripts/gen-demo.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.102.0",
+    "dotenv": "^16.4.5",
+    "openai": "^4.71.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

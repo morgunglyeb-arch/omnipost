@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+.DS_Store
+
+# Generated outputs and per-source LLM cache — repo ships demo seeds only
+data/out/
+data/cache/
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>OmniPost — One source → posts for X, LinkedIn, Instagram + content calendar</title>
+<meta name="description" content="OmniPost is an agentic TypeScript pipeline that turns one long-form article, transcript or note into platform-native posts for X, LinkedIn, Instagram and newsletter — plus a weekly content calendar exportable as .ics. LLM drafts, code enforces every character limit." />
+<meta property="og:title" content="OmniPost — agentic content repurposing" />
+<meta property="og:description" content="One source → X thread + LinkedIn + Instagram + newsletter + a weekly content calendar (.ics). LLM drafts, code enforces every constraint." />
+<meta property="og:type" content="website" />
+<link rel="alternate" hreflang="en" href="./index.html" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif; }
+  .gradient-text {
+    background: linear-gradient(90deg,#a78bfa,#22d3ee 50%,#f472b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  pre, code.inline {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  code.inline { font-size: 0.88em; background: #1e293b; padding: 1px 6px; border-radius: 4px; }
+  .post-card { white-space: pre-wrap; line-height: 1.55; font-size: 14.5px; }
+  .tweet { position: relative; }
+  .tweet:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 18px; top: 56px; bottom: -20px;
+    width: 2px; background: rgba(148,163,184,0.18);
+  }
+  .src-text { white-space: pre-wrap; line-height: 1.7; }
+  .src-text h1 { font-size: 1.4rem; font-weight: 700; color: #f1f5f9; margin: 1rem 0 0.5rem; }
+  .src-text h2 { font-size: 1.05rem; font-weight: 600; color: #cbd5e1; margin: 1.25rem 0 0.4rem; }
+  .src-text p  { color: #94a3b8; margin: 0.6rem 0; }
+  .src-text ul { margin: 0.5rem 0 0.5rem 1.2rem; color: #94a3b8; list-style: disc; }
+  .scrollx::-webkit-scrollbar { height: 6px; }
+  .scrollx::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased">
+
+<!-- nav -->
+<header class="border-b border-slate-800/80 sticky top-0 z-30 bg-slate-950/80 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 font-semibold">
+      <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 via-cyan-400 to-pink-400 grid place-items-center text-slate-900 font-bold">O</span>
+      <span>OmniPost</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-slate-300">
+      <a href="#demo" class="hover:text-white">Live demo</a>
+      <a href="#pipeline" class="hover:text-white">Pipeline</a>
+      <a href="#stack" class="hover:text-white">Stack</a>
+      <a href="#highlights" class="hover:text-white">Highlights</a>
+    </nav>
+    <a href="https://github.com/morgunglyeb-arch/omnipost" class="text-sm bg-white text-slate-900 px-4 py-2 rounded-lg font-medium hover:bg-slate-200">View source</a>
+  </div>
+</header>
+
+<!-- hero -->
+<section class="max-w-6xl mx-auto px-6 pt-16 pb-12">
+  <div class="grid lg:grid-cols-12 gap-10 items-start">
+    <div class="lg:col-span-7">
+      <div class="inline-flex items-center gap-2 text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full text-slate-300 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse"></span>
+        Portfolio project · TypeScript · Agentic LLM systems
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
+        One source. <span class="gradient-text">Ten posts.</span> Zero manual reformatting.
+      </h1>
+      <p class="mt-6 text-lg text-slate-300 max-w-xl">
+        OmniPost is an agentic TypeScript pipeline that turns one long-form article, transcript or note into a full set of platform-native posts — X thread, LinkedIn, Instagram caption, newsletter blurb — plus a weekly content calendar exportable as <code class="inline">.ics</code>. The LLM drafts; <span class="text-white font-medium">code enforces every character limit, hashtag rule and split.</span>
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#demo" class="bg-white text-slate-900 px-5 py-3 rounded-lg font-medium hover:bg-slate-200">See the live demo</a>
+        <a href="https://github.com/morgunglyeb-arch/omnipost" class="border border-slate-700 text-slate-200 px-5 py-3 rounded-lg font-medium hover:border-slate-500">View on GitHub</a>
+      </div>
+      <div class="mt-6 flex flex-wrap items-center gap-2 text-xs text-slate-400">
+        <span class="px-2 py-1 rounded bg-slate-800/60 border border-slate-700">TypeScript 5.6</span>
+        <span class="px-2 py-1 rounded bg-slate-800/60 border border-slate-700">Node 20</span>
+        <span class="px-2 py-1 rounded bg-slate-800/60 border border-slate-700">Anthropic SDK</span>
+        <span class="px-2 py-1 rounded bg-slate-800/60 border border-slate-700">Groq</span>
+        <span class="px-2 py-1 rounded bg-slate-800/60 border border-slate-700">zod</span>
+        <span class="px-2 py-1 rounded bg-slate-800/60 border border-slate-700">.ics calendar</span>
+      </div>
+    </div>
+
+    <!-- hero stats -->
+    <div class="lg:col-span-5 relative">
+      <div class="absolute -inset-6 bg-gradient-to-br from-violet-500/20 via-cyan-500/10 to-pink-500/20 blur-3xl rounded-3xl"></div>
+      <div class="relative grid grid-cols-2 gap-3">
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+          <div class="text-3xl font-bold gradient-text">1 → 13+</div>
+          <div class="mt-1 text-sm text-slate-400">posts per source</div>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+          <div class="text-3xl font-bold text-white">≤ 280</div>
+          <div class="mt-1 text-sm text-slate-400">code-enforced tweet limit</div>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+          <div class="text-3xl font-bold text-white">2 LLMs</div>
+          <div class="mt-1 text-sm text-slate-400">Claude or Groq · 1 zod schema</div>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+          <div class="text-3xl font-bold text-white">.ics</div>
+          <div class="mt-1 text-sm text-slate-400">weekly calendar export</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- live demo -->
+<section id="demo" class="border-t border-slate-800/80 bg-slate-900/40">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold">Live demo · pre-generated bundle</h2>
+        <p class="mt-2 text-slate-400 max-w-2xl">Real output from <code class="inline">npm run repurpose -- --mock</code> on the bundled 1,300-word source. Same pipeline, same enforcement, no API key required.</p>
+      </div>
+      <div class="flex gap-2 text-xs">
+        <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30" id="badge-tweets">— tweets</span>
+        <span class="px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30" id="badge-hashtags">— hashtags</span>
+        <span class="px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/30" id="badge-week">7-day calendar</span>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-6">
+      <!-- source -->
+      <div class="lg:col-span-5 bg-slate-900/70 border border-slate-800 rounded-2xl p-6 max-h-[700px] overflow-y-auto">
+        <div class="flex items-center justify-between mb-3">
+          <div class="text-xs uppercase tracking-wider text-slate-400">Source · <span id="src-words">— words</span></div>
+          <span class="text-xs text-slate-500">data/source.md</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-4" id="src-title">—</h3>
+        <div class="src-text text-sm" id="src-body">Loading…</div>
+      </div>
+
+      <!-- generated -->
+      <div class="lg:col-span-7 space-y-5">
+        <!-- hooks -->
+        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-7 h-7 rounded-md bg-gradient-to-br from-fuchsia-500 to-pink-400 grid place-items-center text-slate-900 font-bold text-xs">H</span>
+            <h4 class="font-semibold">Hooks · 3 variants</h4>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-200" id="hooks-list"></ul>
+        </div>
+
+        <!-- x thread -->
+        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-md bg-white grid place-items-center text-slate-900 font-bold text-sm">𝕏</span>
+              <h4 class="font-semibold">X / Twitter thread</h4>
+            </div>
+            <span class="text-xs text-slate-400">All tweets ≤ 280 · code-enforced</span>
+          </div>
+          <div class="space-y-5" id="thread-list"></div>
+        </div>
+
+        <!-- linkedin -->
+        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-7 h-7 rounded-md bg-[#0a66c2] grid place-items-center text-white font-bold text-sm">in</span>
+            <h4 class="font-semibold">LinkedIn post</h4>
+            <span class="text-xs text-slate-500 ml-auto" id="li-len">— chars</span>
+          </div>
+          <div class="post-card text-slate-200" id="linkedin-body"></div>
+        </div>
+
+        <!-- instagram + hashtags -->
+        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-7 h-7 rounded-md bg-gradient-to-br from-yellow-400 via-pink-500 to-violet-500 grid place-items-center text-white font-bold text-sm">◉</span>
+            <h4 class="font-semibold">Instagram caption</h4>
+            <span class="text-xs text-slate-500 ml-auto" id="ig-len">— chars</span>
+          </div>
+          <div class="post-card text-slate-200" id="instagram-body"></div>
+          <div class="mt-4 pt-4 border-t border-slate-800">
+            <div class="text-xs uppercase tracking-wider text-slate-400 mb-2">Hashtags · deduped, ≤ 10</div>
+            <div class="flex flex-wrap gap-2 text-sm" id="hashtags-list"></div>
+          </div>
+        </div>
+
+        <!-- pull quotes -->
+        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-7 h-7 rounded-md bg-amber-400/90 grid place-items-center text-slate-900 font-bold text-sm">"</span>
+            <h4 class="font-semibold">Pull quotes</h4>
+          </div>
+          <ul class="space-y-3" id="pullquotes-list"></ul>
+        </div>
+
+        <!-- newsletter -->
+        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-7 h-7 rounded-md bg-emerald-400 grid place-items-center text-slate-900 font-bold text-sm">✉</span>
+            <h4 class="font-semibold">Newsletter blurb</h4>
+            <span class="text-xs text-slate-500 ml-auto" id="nl-len">— chars</span>
+          </div>
+          <div class="post-card text-slate-200" id="newsletter-body"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- calendar -->
+    <div class="mt-8 bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+      <div class="flex flex-wrap items-end justify-between gap-3 mb-4">
+        <div>
+          <h4 class="font-semibold text-lg">Weekly content calendar</h4>
+          <p class="text-sm text-slate-400 mt-1">Code spreads posts across slots — daily for X, Mon/Wed/Fri for LinkedIn, Tue/Thu/Sat for Instagram, Thursday for newsletter. Exports as <code class="inline">calendar.csv</code> and <code class="inline">calendar.ics</code> (import into Google Calendar).</p>
+        </div>
+        <span class="text-xs text-slate-500" id="cal-count">— scheduled</span>
+      </div>
+      <div class="overflow-x-auto scrollx">
+        <table class="min-w-full text-sm">
+          <thead class="text-xs text-slate-400 uppercase tracking-wider">
+            <tr class="border-b border-slate-800">
+              <th class="text-left py-2 pr-4">When (UTC)</th>
+              <th class="text-left py-2 pr-4">Platform</th>
+              <th class="text-left py-2 pr-4">Preview</th>
+            </tr>
+          </thead>
+          <tbody id="cal-body" class="divide-y divide-slate-800/70"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- pipeline -->
+<section id="pipeline" class="max-w-6xl mx-auto px-6 py-20">
+  <h2 class="text-3xl md:text-4xl font-bold mb-3">The pipeline</h2>
+  <p class="text-slate-400 max-w-2xl mb-10">Five pure, typed steps. LLM only writes drafts. Every hard constraint — character limits, hashtag dedup, thread numbering — lives in <code class="inline">enforce.ts</code>. That separation is the entire reliability story.</p>
+
+  <div class="grid md:grid-cols-5 gap-3">
+    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5">
+      <div class="text-xs text-slate-500 mb-1">1</div>
+      <div class="font-semibold">ingest</div>
+      <p class="text-sm text-slate-400 mt-2">Read a file or fetch a URL behind one <code class="inline">ContentSource</code> interface. HTML article extraction is built in.</p>
+    </div>
+    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5">
+      <div class="text-xs text-slate-500 mb-1">2</div>
+      <div class="font-semibold">repurpose</div>
+      <p class="text-sm text-slate-400 mt-2">Claude tool-use or Groq <code class="inline">json_object</code> → one zod schema. Brand voice baked into the system prompt.</p>
+    </div>
+    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5">
+      <div class="text-xs text-slate-500 mb-1">3</div>
+      <div class="font-semibold">enforce</div>
+      <p class="text-sm text-slate-400 mt-2">Code splits tweets ≤ 280, numbers <code class="inline">1/n</code>, dedups hashtags, normalizes markdown per platform.</p>
+    </div>
+    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5">
+      <div class="text-xs text-slate-500 mb-1">4</div>
+      <div class="font-semibold">schedule</div>
+      <p class="text-sm text-slate-400 mt-2">Slot-based planner across N days. Emits CSV + RFC-5545 <code class="inline">.ics</code> for Google Calendar.</p>
+    </div>
+    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5">
+      <div class="text-xs text-slate-500 mb-1">5</div>
+      <div class="font-semibold">write</div>
+      <p class="text-sm text-slate-400 mt-2">JSON + human-readable Markdown to <code class="inline">data/out/</code>. Cached by source hash — re-runs skip the LLM.</p>
+    </div>
+  </div>
+</section>
+
+<!-- highlights -->
+<section id="highlights" class="border-t border-slate-800/80 bg-slate-900/40">
+  <div class="max-w-6xl mx-auto px-6 py-20">
+    <h2 class="text-3xl md:text-4xl font-bold mb-10">Engineering highlights</h2>
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+        <h3 class="font-semibold mb-2">LLM drafts · code enforces</h3>
+        <p class="text-sm text-slate-400">Language models cannot count characters reliably. So character limits, hashtag dedup and thread numbering all live in <code class="inline">enforce.ts</code> — the same pattern used in PulseReport for numbers.</p>
+      </div>
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+        <h3 class="font-semibold mb-2">Strict structured output, two providers, one schema</h3>
+        <p class="text-sm text-slate-400">Claude path uses <code class="inline">tools</code> + <code class="inline">tool_choice</code> + <code class="inline">input_schema</code>; Groq path uses <code class="inline">response_format: json_object</code>. Both validated through the same zod schema.</p>
+      </div>
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+        <h3 class="font-semibold mb-2">Graceful fallback</h3>
+        <p class="text-sm text-slate-400">If the LLM call fails or returns invalid JSON, a deterministic paragraph-splitter produces a usable draft and the run is marked <code class="inline">degraded: true</code>. The pipeline never silently breaks.</p>
+      </div>
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+        <h3 class="font-semibold mb-2">Source-hash cache</h3>
+        <p class="text-sm text-slate-400">Each LLM result is cached at <code class="inline">data/cache/&lt;hash&gt;.json</code> keyed by source + brand voice. Re-running with the same input skips the API entirely. <code class="inline">--force</code> drops the cache.</p>
+      </div>
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+        <h3 class="font-semibold mb-2">Brand voice from config</h3>
+        <p class="text-sm text-slate-400">Tone, audience, CTA, do/don't and language come from env. The voice is part of the cache key — change it and the next run regenerates.</p>
+      </div>
+      <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+        <h3 class="font-semibold mb-2">Offline demo</h3>
+        <p class="text-sm text-slate-400"><code class="inline">npm run repurpose -- --mock --dry</code> produces a full bundle from the bundled source and the seeded cache. Same code path CI runs on every push.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- stack -->
+<section id="stack" class="max-w-6xl mx-auto px-6 py-20">
+  <h2 class="text-3xl md:text-4xl font-bold mb-10">Stack & CLI</h2>
+  <div class="grid lg:grid-cols-2 gap-8">
+    <div>
+      <ul class="space-y-2 text-sm text-slate-300">
+        <li>• TypeScript 5.6 ESM strict · Node 20+ · <code class="inline">tsx</code></li>
+        <li>• <code class="inline">@anthropic-ai/sdk</code> with tool-use + <code class="inline">cache_control</code></li>
+        <li>• <code class="inline">openai</code> SDK pointed at Groq's OpenAI-compatible endpoint</li>
+        <li>• <code class="inline">zod</code> for env + every LLM response</li>
+        <li>• Native <code class="inline">fetch</code> + tiny HTML extractor, no headless browser</li>
+        <li>• RFC-5545 <code class="inline">.ics</code> generation, zero deps</li>
+        <li>• GitHub Actions CI · typecheck + offline mock run</li>
+      </ul>
+    </div>
+    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 text-sm">
+<pre class="text-slate-300 overflow-x-auto"><code># offline demo (no API key)
+npm run repurpose -- --mock --dry
+
+# real run on the bundled article
+npm run repurpose
+
+# fetch and repurpose a URL
+npm run repurpose -- --url=https://example.com/article
+
+# pick platforms
+npm run repurpose -- --platforms=x,linkedin
+
+# add a 7-day content calendar
+npm run repurpose -- --schedule --days=7
+
+# bypass cache
+npm run repurpose -- --force</code></pre>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-slate-800/80">
+  <div class="max-w-6xl mx-auto px-6 py-10 flex flex-wrap items-center justify-between gap-4 text-sm text-slate-400">
+    <div>MIT · built by <a href="https://github.com/morgunglyeb-arch" class="text-slate-200 hover:text-white">Glyeb Morgun</a></div>
+    <div class="flex gap-5">
+      <a href="https://github.com/morgunglyeb-arch/omnipost" class="hover:text-white">GitHub</a>
+      <a href="https://github.com/morgunglyeb-arch/omnipost/blob/main/PORTFOLIO.md" class="hover:text-white">Case study</a>
+      <a href="https://morgunglyeb-arch.github.io/pulsereport/" class="hover:text-white">PulseReport ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(async function () {
+  const escape = (s) => s.replace(/[&<>]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+  const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+  const text = (id, s) => { const el = document.getElementById(id); if (el) el.textContent = s; };
+
+  let payload;
+  try {
+    const res = await fetch("./sample.json", { cache: "no-store" });
+    payload = await res.json();
+  } catch (err) {
+    set("src-body", '<span class="text-red-400">Could not load sample.json — run <code class="inline">npm run gen:demo</code>.</span>');
+    return;
+  }
+
+  const { source_title, source_excerpt, bundle, schedule } = payload;
+
+  // source
+  text("src-title", source_title);
+  const wc = (source_excerpt || "").split(/\s+/).filter(Boolean).length;
+  text("src-words", `excerpt · ${wc} words shown`);
+  set("src-body", renderMarkdownLite(source_excerpt || ""));
+
+  // badges
+  text("badge-tweets", `${bundle.x_thread.length} tweets`);
+  text("badge-hashtags", `${bundle.hashtags.length} hashtags`);
+
+  // hooks
+  set("hooks-list", bundle.hooks.map((h, i) =>
+    `<li class="flex gap-3"><span class="text-pink-300 font-mono text-xs pt-1">0${i+1}</span><span>${escape(h)}</span></li>`
+  ).join(""));
+
+  // X thread
+  set("thread-list", bundle.x_thread.map((t, i) => `
+    <div class="tweet flex gap-3">
+      <div class="w-9 h-9 rounded-full bg-gradient-to-br from-slate-200 to-slate-400 grid place-items-center text-slate-900 font-bold text-xs flex-shrink-0">${i+1}</div>
+      <div class="flex-1">
+        <div class="flex items-center gap-2 text-xs text-slate-500">
+          <span class="font-medium text-slate-300">@omnipost</span>
+          <span>·</span>
+          <span>${t.length} chars</span>
+        </div>
+        <div class="post-card text-slate-100 mt-1">${escape(t)}</div>
+      </div>
+    </div>
+  `).join(""));
+
+  // LinkedIn
+  text("li-len", `${bundle.linkedin_post.length} chars`);
+  set("linkedin-body", escape(bundle.linkedin_post));
+
+  // Instagram
+  text("ig-len", `${bundle.instagram_caption.length} chars`);
+  set("instagram-body", escape(bundle.instagram_caption));
+  set("hashtags-list", bundle.hashtags.map((h) =>
+    `<span class="px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700 text-slate-200">#${escape(h)}</span>`
+  ).join(""));
+
+  // pull quotes
+  set("pullquotes-list", bundle.pull_quotes.map((q) =>
+    `<li class="border-l-2 border-amber-400/60 pl-4 italic text-slate-300">"${escape(q)}"</li>`
+  ).join(""));
+
+  // newsletter
+  text("nl-len", `${bundle.newsletter_blurb.length} chars`);
+  set("newsletter-body", escape(bundle.newsletter_blurb));
+
+  // calendar
+  if (schedule && schedule.length) {
+    text("cal-count", `${schedule.length} posts scheduled`);
+    const colors = {
+      x: "bg-slate-200/10 text-slate-200 border-slate-700",
+      linkedin: "bg-[#0a66c2]/20 text-blue-200 border-blue-500/30",
+      instagram: "bg-pink-500/15 text-pink-200 border-pink-500/30",
+      newsletter: "bg-emerald-500/15 text-emerald-200 border-emerald-500/30",
+    };
+    set("cal-body", schedule.map((p) => {
+      const when = p.datetime.replace("T", " ").replace(":00.000Z", "");
+      const flat = p.content.replace(/\s+/g, " ").trim();
+      const preview = flat.length > 90 ? flat.slice(0, 89) + "…" : flat;
+      const cls = colors[p.platform] || "bg-slate-800 text-slate-200";
+      return `<tr>
+        <td class="py-2 pr-4 text-slate-400 whitespace-nowrap">${when}</td>
+        <td class="py-2 pr-4"><span class="px-2 py-0.5 rounded-md text-xs border ${cls}">${p.platform}</span></td>
+        <td class="py-2 pr-4 text-slate-300">${escape(preview)}</td>
+      </tr>`;
+    }).join(""));
+  } else {
+    text("cal-count", "no calendar generated");
+  }
+
+  function renderMarkdownLite(md) {
+    const lines = md.split("\n");
+    let html = "";
+    let inList = false;
+    for (const raw of lines) {
+      const line = raw.trimEnd();
+      if (/^#\s+/.test(line)) {
+        if (inList) { html += "</ul>"; inList = false; }
+        html += `<h1>${escape(line.replace(/^#\s+/, ""))}</h1>`;
+      } else if (/^##\s+/.test(line)) {
+        if (inList) { html += "</ul>"; inList = false; }
+        html += `<h2>${escape(line.replace(/^##\s+/, ""))}</h2>`;
+      } else if (/^[-*]\s+/.test(line)) {
+        if (!inList) { html += "<ul>"; inList = true; }
+        html += `<li>${escape(line.replace(/^[-*]\s+/, ""))}</li>`;
+      } else if (line === "") {
+        if (inList) { html += "</ul>"; inList = false; }
+      } else {
+        if (inList) { html += "</ul>"; inList = false; }
+        html += `<p>${escape(line)}</p>`;
+      }
+    }
+    if (inList) html += "</ul>";
+    return html;
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{
+  "source_title": "How a small business can adopt AI without burning six months and $50k",
+  "source_excerpt": "Most \"AI strategy\" advice aimed at small businesses is written for companies that don't exist. It assumes a dedicated data team, clean systems of record, and the budget to run a six-month pilot before anyone asks an inconvenient question about ROI. If you're running a ten-person agency, a niche e-commerce brand, or a service business with one operations manager and a Notion full of SOPs, that playbook is useless. You need something smaller, faster, and harder to mess up.\n\nThe good news is that the gap between \"AI is interesting\" and \"AI is saving us five hours a week\" is shorter than it looks — provided you stop trying to do everything and pick the right first job.\n\n## The wrong way to start\n\nThe most common mistake is buying tools before solving a problem. Someone reads a thread about AI ",
+  "bundle": {
+    "hooks": [
+      "Most AI advice for small businesses is written for companies that don't exist. Here's what actually works when you have ten people and no data team.",
+      "Stop buying AI tools. Start picking one painful task. Three months in, you'll have a workday a week back across your team — and zero shelfware.",
+      "The gap between 'AI is interesting' and 'AI is saving us five hours a week' is shorter than it looks. The trick is picking the right first job."
+    ],
+    "x_thread": [
+      "Most AI strategy advice for small businesses is written for companies that don't exist. It assumes a data team, clean systems, and a six-month pilot. If you have ten people and one ops manager, that playbook is useless. Here is the version that actually works. 1/9",
+      "The most common failure mode is buying tools before solving a problem. Someone reads a thread on Sunday, by Monday the team has five new subscriptions, by Friday three are unused, and by next quarter all five are still being billed. 2/9",
+      "The opposite failure is worse: building a custom AI system when the actual problem is a fifteen-line script. We have seen founders pay an ML engineer for a smart classifier that ended up doing what a SQL CASE statement would have done at zero cost. 3/9",
+      "A good first AI workflow has four properties. It is repetitive, so savings compound. It is text-heavy, so a language model can help. It tolerates a small error rate, so guardrails stay cheap. It has a clear before/after metric you can point at. 4/9",
+      "Real examples we have seen: a three-person law firm cut a four-hour intake summarization down to forty minutes. A small e-commerce store dropped support response time from eleven hours to ninety minutes by drafting replies for a human to approve. 5/9",
+      "Notice what those have in common. The AI did not replace the expert. It removed the most boring part of the expert's job — the part eating their attention without using their skill. That is the entire game. 6/9",
+      "The sequence that almost always works: pick the most annoying recurring task. Write down what good output looks like, manually, three times. Start with an off-the-shelf tool, not a custom build. Keep a human reviewer for at least four weeks. 7/9",
+      "Honest math: tooling runs $30 to $150 per workflow per month, plus 10 to 20 hours of setup. If the workflow saves three hours a week at $50 an hour, it pays back inside the first month. Nothing flashy. Compound is what gets you the workday back. 8/9",
+      "If after two months no one on your team has voluntarily asked for AI help on a second task, the first workflow was the wrong one. Pause it, pick a different one, retry. The cost of switching is small. The cost of pretending a bad fit works is huge. 9/9"
+    ],
+    "linkedin_post": "Most AI strategy advice aimed at small businesses is written for companies that don't exist.\n\nIt assumes a dedicated data team, clean systems of record, and the budget to run a six-month pilot before anyone asks about ROI. If you run a ten-person agency or a niche e-commerce brand with one ops manager, that playbook is useless.\n\nThe gap between \"AI is interesting\" and \"AI is saving us five hours a week\" is shorter than it looks — provided you stop trying to do everything and pick the right first job.\n\nA good first workflow has four properties:\n- It is repetitive, so the savings compound.\n- It is text-heavy, so a language model can actually help.\n- It tolerates a small error rate, so you don't overspend on guardrails.\n- It has a clear before/after metric — minutes saved, response time, conversion.\n\nReal examples from the last twelve months:\n- A three-person law firm cut a four-hour weekly intake summarization to forty minutes.\n- A small e-commerce store dropped support response time from eleven hours to ninety minutes by drafting replies for a human to approve. CSAT went up, not down, because drafts arrived faster than the perfect-but-late versions.\n- A marketing agency stopped writing weekly client recaps by hand. A strategist edits each AI draft in under five minutes, and clients say the recaps feel more thorough.\n\nNotice what they share. The AI did not replace the expert. It removed the most boring part of the expert's job — the part eating their attention without using their skill.\n\nThe sequence that almost always works: pick the most annoying recurring task, write down what good looks like, start with an off-the-shelf tool, keep a human reviewer for at least four weeks, measure time-saved and error rate, and only then wire it into Slack and your CRM.\n\nReply with your biggest content bottleneck — happy to brainstorm.",
+    "instagram_caption": "Most AI advice for small businesses is written for companies that don't exist.\n\nIt assumes a data team, clean systems, and a six-month pilot.\n\nWhat actually works at ten-person scale:\n\n→ Pick the most annoying recurring task, not the most exciting one.\n→ Write down what good output looks like, by hand, three times.\n→ Start with an off-the-shelf tool. Resist the urge to build.\n→ Keep a human reviewer in the loop for at least four weeks.\n→ Measure two numbers: time saved per occurrence, and error rate vs the human version.\n\nThe boring version of this beats the trendy version every single time. Three months in, you can quietly buy back a full workday a week across your team — without anyone touching the word \"transformation\".\n\nReply with your biggest content bottleneck — happy to brainstorm. 👋",
+    "hashtags": [
+      "smallbusiness",
+      "aitools",
+      "automation",
+      "contentstrategy",
+      "founders",
+      "productivity",
+      "indiehackers",
+      "workflowautomation",
+      "buildinpublic"
+    ],
+    "pull_quotes": [
+      "The AI did not replace the expert. It removed the most boring part of the expert's job.",
+      "Most 'AI failed us' stories are really 'we removed the reviewer too fast' stories.",
+      "You are not measuring AI adoption. You are measuring whether the right things happen faster, with the same or better quality.",
+      "Boredom is a great signal. If someone on your team groans every Monday at the same thing, that is your candidate.",
+      "Done the boring way, the next twelve months quietly buy back a workday a week. Done the trendy way, they burn your tooling budget and your team's patience."
+    ],
+    "newsletter_blurb": "Most AI playbooks for small businesses assume a data team and a six-month pilot. You probably have neither. The version that actually works is unglamorous: pick the most annoying recurring task, write down what good output looks like by hand, start with an off-the-shelf assistant, and keep a human reviewer in the loop for at least four weeks. Measure two numbers — time saved per occurrence, and error rate against the human version. Three months in, the right first job quietly buys back a workday a week across your team. Reply with your biggest content bottleneck — happy to brainstorm."
+  },
+  "schedule": [
+    {
+      "platform": "linkedin",
+      "content": "Most AI strategy advice aimed at small businesses is written for companies that don't exist.\n\nIt assumes a dedicated data team, clean systems of record, and the budget to run a six-month pilot before anyone asks about ROI. If you run a ten-person agency or a niche e-commerce brand with one ops manager, that playbook is useless.\n\nThe gap between \"AI is interesting\" and \"AI is saving us five hours a week\" is shorter than it looks — provided you stop trying to do everything and pick the right first job.\n\nA good first workflow has four properties:\n- It is repetitive, so the savings compound.\n- It is text-heavy, so a language model can actually help.\n- It tolerates a small error rate, so you don't overspend on guardrails.\n- It has a clear before/after metric — minutes saved, response time, conversion.\n\nReal examples from the last twelve months:\n- A three-person law firm cut a four-hour weekly intake summarization to forty minutes.\n- A small e-commerce store dropped support response time from eleven hours to ninety minutes by drafting replies for a human to approve. CSAT went up, not down, because drafts arrived faster than the perfect-but-late versions.\n- A marketing agency stopped writing weekly client recaps by hand. A strategist edits each AI draft in under five minutes, and clients say the recaps feel more thorough.\n\nNotice what they share. The AI did not replace the expert. It removed the most boring part of the expert's job — the part eating their attention without using their skill.\n\nThe sequence that almost always works: pick the most annoying recurring task, write down what good looks like, start with an off-the-shelf tool, keep a human reviewer for at least four weeks, measure time-saved and error rate, and only then wire it into Slack and your CRM.\n\nReply with your biggest content bottleneck — happy to brainstorm.",
+      "datetime": "2026-06-15T09:00:00.000Z"
+    },
+    {
+      "platform": "x",
+      "content": "Most AI strategy advice for small businesses is written for companies that don't exist. It assumes a data team, clean systems, and a six-month pilot. If you have ten people and one ops manager, that playbook is useless. Here is the version that actually works. 1/9",
+      "datetime": "2026-06-15T10:00:00.000Z"
+    },
+    {
+      "platform": "x",
+      "content": "The most common failure mode is buying tools before solving a problem. Someone reads a thread on Sunday, by Monday the team has five new subscriptions, by Friday three are unused, and by next quarter all five are still being billed. 2/9",
+      "datetime": "2026-06-16T10:00:00.000Z"
+    },
+    {
+      "platform": "instagram",
+      "content": "Most AI advice for small businesses is written for companies that don't exist.\n\nIt assumes a data team, clean systems, and a six-month pilot.\n\nWhat actually works at ten-person scale:\n\n→ Pick the most annoying recurring task, not the most exciting one.\n→ Write down what good output looks like, by hand, three times.\n→ Start with an off-the-shelf tool. Resist the urge to build.\n→ Keep a human reviewer in the loop for at least four weeks.\n→ Measure two numbers: time saved per occurrence, and error rate vs the human version.\n\nThe boring version of this beats the trendy version every single time. Three months in, you can quietly buy back a full workday a week across your team — without anyone touching the word \"transformation\".\n\nReply with your biggest content bottleneck — happy to brainstorm. 👋\n\n#smallbusiness #aitools #automation #contentstrategy #founders #productivity #indiehackers #workflowautomation #buildinpublic",
+      "datetime": "2026-06-16T12:30:00.000Z"
+    },
+    {
+      "platform": "x",
+      "content": "The opposite failure is worse: building a custom AI system when the actual problem is a fifteen-line script. We have seen founders pay an ML engineer for a smart classifier that ended up doing what a SQL CASE statement would have done at zero cost. 3/9",
+      "datetime": "2026-06-17T10:00:00.000Z"
+    },
+    {
+      "platform": "newsletter",
+      "content": "Most AI playbooks for small businesses assume a data team and a six-month pilot. You probably have neither. The version that actually works is unglamorous: pick the most annoying recurring task, write down what good output looks like by hand, start with an off-the-shelf assistant, and keep a human reviewer in the loop for at least four weeks. Measure two numbers — time saved per occurrence, and error rate against the human version. Three months in, the right first job quietly buys back a workday a week across your team. Reply with your biggest content bottleneck — happy to brainstorm.",
+      "datetime": "2026-06-18T08:00:00.000Z"
+    },
+    {
+      "platform": "x",
+      "content": "A good first AI workflow has four properties. It is repetitive, so savings compound. It is text-heavy, so a language model can help. It tolerates a small error rate, so guardrails stay cheap. It has a clear before/after metric you can point at. 4/9",
+      "datetime": "2026-06-18T10:00:00.000Z"
+    },
+    {
+      "platform": "x",
+      "content": "Real examples we have seen: a three-person law firm cut a four-hour intake summarization down to forty minutes. A small e-commerce store dropped support response time from eleven hours to ninety minutes by drafting replies for a human to approve. 5/9",
+      "datetime": "2026-06-19T10:00:00.000Z"
+    },
+    {
+      "platform": "x",
+      "content": "Notice what those have in common. The AI did not replace the expert. It removed the most boring part of the expert's job — the part eating their attention without using their skill. That is the entire game. 6/9",
+      "datetime": "2026-06-20T10:00:00.000Z"
+    },
+    {
+      "platform": "x",
+      "content": "The sequence that almost always works: pick the most annoying recurring task. Write down what good output looks like, manually, three times. Start with an off-the-shelf tool, not a custom build. Keep a human reviewer for at least four weeks. 7/9",
+      "datetime": "2026-06-21T10:00:00.000Z"
+    }
+  ],
+  "generated_at": "2026-06-14T18:25:32.768Z"
+}
